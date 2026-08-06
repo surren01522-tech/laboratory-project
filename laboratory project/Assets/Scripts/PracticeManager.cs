@@ -1,40 +1,50 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PracticeManager : MonoBehaviour
 {
-    int score = 8;
-    int hp = 5;
+    public int score = 100;
+    public int hp = 10;
+    float speed = 2.5f;
     bool isGameOver = false;
+    string playerName = "Slime";
+
+    public SpriteRenderer spriteRenderer;
+    public Transform playerTransform;
 
     void Start()
     {
-        Debug.Log("연습 시작");
+        Debug.Log("플레이어 이름: " + playerName);
+        Debug.Log("점수: " + score.ToString());
+        Debug.Log("체력: " + hp.ToString());
+        Debug.Log("속도: " + speed.ToString());
+        Debug.Log("게임오버 상태: " + isGameOver.ToString());
 
-        Damage();
-        AddScore();
-        Damage();
-        AddScore();
-        Damage();
-        AddScore();
-
-        Heal();
+        ChangeColorRed();
     }
 
-    void AddScore()
+    void ChangeColorRed()
     {
-        if (isGameOver == true)
+        spriteRenderer.color = Color.red;
+    }
+
+    void UpdateColor()
+    {
+        if (hp <= 0)
         {
-            Debug.Log("게임오버 상태라 점수를 올릴 수 없음");
-            return;
+            spriteRenderer.color = Color.pink;
         }
-
-        score++;
-        Debug.Log("점수 증가");
-        PrintStatus();
-
-        if (score >= 5)
+        else if (hp == 1)
         {
-            Debug.Log("클리어 가능");
+            spriteRenderer.color = Color.blue;
+        }
+        else if (hp == 2)
+        {
+            spriteRenderer.color = Color.purple;
+        }
+        else
+        {
+            spriteRenderer.color = Color.skyBlue;
         }
     }
 
@@ -46,47 +56,84 @@ public class PracticeManager : MonoBehaviour
             return;
         }
 
-        hp -= 2;
-        Debug.Log("체력 감소");
-        PrintStatus();
+        hp--;
+
+        Debug.Log("데미지를 받았습니다.");
 
         if (hp <= 0)
         {
-            GameOver();
+            isGameOver = true;
+            Debug.Log("게임오버 상태가 되었습니다.");
         }
     }
 
-    void GameOver()
+    void UpdateScale()
     {
-        isGameOver = true;
-        Debug.Log("게임 오버");
+        float size = 1.0f + score * 0.3f;
+        playerTransform.localScale = new Vector3(size, size, 1);
     }
 
-    void ResetGame()
+    void AddScore()
     {
-        score = 0;
-        hp = 3;
-        isGameOver = false;
+        if (isGameOver == true)
+        {
+            Debug.Log("이미 게임오버 상태입니다.");
+            return;
+        }
 
-        Debug.Log("게임 초기화");
-        PrintStatus();
+        score+= 5;
     }
 
-    void PrintStatus()
+    //int score = 100;
+    //int hp = 10;
+    //float speed = 2.5f;
+    //bool isGameOver = true;
+    //string playerName = "Slime";
+
+    //void Start()
+    //{
+    //    Debug.Log("점수:" + 200);
+    //    Debug.Log("체력:" + 20);
+    //    Debug.Log("스피드:" + 5f);
+    //    Debug.Log("게임오버상태:" + "실패");
+    //    Debug.Log("플레이어 이름:" + 200);
+    //}
+
+    // Update is called once per frame
+    void Update()
     {
-        Debug.Log("점수: " + score + " / 체력: " + hp + " / 게임오버: " + isGameOver);
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            Damage();
+        }
+        if (Keyboard.current.cKey.wasPressedThisFrame)
+        {
+            AddScore();
+        }
+        if (Keyboard.current.hKey.wasPressedThisFrame)
+        {
+            Heal();
+        }
+
+        UpdateColor();
+        UpdateScale();
     }
 
     void Heal()
     {
         if (isGameOver == true)
         {
-            Debug.Log("게임오버 상태라 체력을 회복할 수 없음");
+            Debug.Log("게임오바 상태라 회복할 수 없습니다.");
+            return;
+        }
+        if (hp >= 5)
+        {
+            Debug.Log("체력이 가득 차서 회복할 수 없습니다.");
             return;
         }
 
         hp++;
         Debug.Log("체력 회복");
-        PrintStatus();
     }
+
 }
