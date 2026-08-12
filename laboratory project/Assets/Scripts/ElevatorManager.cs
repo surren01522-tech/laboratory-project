@@ -27,18 +27,32 @@ public class ElevatorManager : MonoBehaviour
     {
         moveCount++;
 
-        floorText.text = "현재 층: " + currentFloor + "층";
-        messageText.text = "상태" + message;
+        if (currentFloor < 0)
+        {
+            floorText.text = "현재 층: B" + Mathf.Abs(currentFloor) + "층";
+        }
+        else
+        {
+            floorText.text = "현재 층: " + currentFloor + "층";
+        }
+        if (currentFloor <0 )
+        {
+            messageText.text = "상태: B" + Mathf.Abs(currentFloor) + "층입니다.";
+        }
+        else
+        {
+            messageText.text = "상태: " + currentFloor + "층입니다.";
+        }
         moveCountText.text = "엘리베이터 이동 횟수: " + moveCount;
 
 
         if (currentFloor == 10)
         {
-            message = "꼭대기";
+            messageText.text = "꼭대기";
         }
         if (currentFloor == 1)
         {
-            message = "로비";
+            messageText.text = "로비";
         }
     }
 
