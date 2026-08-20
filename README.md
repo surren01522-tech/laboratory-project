@@ -1,2 +1,0 @@
-# laboratory-project
-laboratory project
