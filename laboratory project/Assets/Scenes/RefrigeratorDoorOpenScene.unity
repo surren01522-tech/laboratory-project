@@ -178,8 +178,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: FoodStateText
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a257e745b7eb76d43a12cecf732d847a, type: 2}
+  m_sharedMaterial: {fileID: 6840851255713908318, guid: a257e745b7eb76d43a12cecf732d847a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -567,7 +567,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 437835640}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1339004555}
+        m_TargetAssemblyTypeName: FridgeManager, Assembly-CSharp
+        m_MethodName: CloseDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &437835640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,8 +677,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: TemperatureText
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a257e745b7eb76d43a12cecf732d847a, type: 2}
+  m_sharedMaterial: {fileID: 6840851255713908318, guid: a257e745b7eb76d43a12cecf732d847a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1031,7 +1043,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 948050308}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1339004555}
+        m_TargetAssemblyTypeName: FridgeManager, Assembly-CSharp
+        m_MethodName: ResetButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &948050308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1403,8 +1427,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: DoorText
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a257e745b7eb76d43a12cecf732d847a, type: 2}
+  m_sharedMaterial: {fileID: 6840851255713908318, guid: a257e745b7eb76d43a12cecf732d847a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1510,6 +1534,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f83a86b9889bcc6429a012fa15a7a7d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FridgeManager
+  temperatureText: {fileID: 476739747}
+  doorText: {fileID: 1266074423}
+  foodStateText: {fileID: 103700587}
+  messageText: {fileID: 1523687227}
 --- !u!4 &1339004556
 Transform:
   m_ObjectHideFlags: 0
@@ -1692,8 +1720,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: MessageText
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a257e745b7eb76d43a12cecf732d847a, type: 2}
+  m_sharedMaterial: {fileID: 6840851255713908318, guid: a257e745b7eb76d43a12cecf732d847a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1852,7 +1880,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1825005958}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1339004555}
+        m_TargetAssemblyTypeName: FridgeManager, Assembly-CSharp
+        m_MethodName: OpenDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1825005958
 MonoBehaviour:
   m_ObjectHideFlags: 0
